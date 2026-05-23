@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Malela Styles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="bg-white border-bottom sticky-top">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+            <a href="index.html" class="fs-4 fw-bold text-dark text-decoration-none">MALELA STYLES</a>
+            <nav class="d-flex align-items-center">
+                <ul class="nav me-3">
+                    <li class="nav-item"><a href="index.html" class="nav-link text-dark">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link text-dark">About us</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark dropdown-toggle fw-bold" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="shopDropdown">
+                            <li><a class="dropdown-item" href="shop.html">All Collections</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="shop.html?category=men">Men's Apparel</a></li>
+                            <li><a class="dropdown-item" href="shop.html?category=women">Women's Apparel</a></li>
+                            <li><a class="dropdown-item" href="shop.html?category=accessories">Accessories</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a href="gallery.html" class="nav-link text-dark">Gallery</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link text-dark">Contact us</a></li>
+                    <li class="nav-item"><a href="feedback.html" class="nav-link text-dark">Feedback</a></li>
+                </ul>
+                <button class="btn btn-outline-dark position-relative" onclick="checkoutAlert()">
+                    Cart 🛒
+                    <span id="cart-counter" class="badge bg-danger cart-badge">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-light text-center py-4 border-bottom">
+        <div class="container">
+            <h1 class="fw-bold">Shop Our Collections</h1>
+            <p class="text-muted">Browse through our carefully curated selection of men's, women's and accessories. Prices configured in BWP.</p>
+        </div>
+    </div>
+
+    <div class="container my-5">
+        <div class="row">
+            <aside class="col-lg-3 mb-4">
+                <div class="border rounded p-3 bg-white shadow-sm">
+                    <h5 class="fw-bold mb-3">Filter Products</h5>
+                    <hr>
+                    <label class="form-label fw-semibold">Category Target</label>
+                    <div class="mb-3">
+                        <select class="form-select" id="categoryFilter" onchange="runCatalogFilter()">
+                            <option value="all">All Categories</option>
+                            <option value="men">Men's Collection</option>
+                            <option value="women">Women's Collection</option>
+                            <option value="accessories">Accessories</option>
+                        </select>
+                    </div>
+                    <label class="form-label fw-semibold">Price Range</label>
+                    <div class="mb-2">
+                        <select class="form-select" id="priceFilter" onchange="runCatalogFilter()">
+                            <option value="all">Any Price</option>
+                            <option value="low">Under BWP 300</option>
+                            <option value="mid">BWP 300 - BWP 500</option>
+                            <option value="high">Over BWP 500</option>
+                        </select>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="col-lg-9">
+                <div class="row g-4" id="productsGrid">
+                    
+                    <div class="col-md-4 product-item-card" data-category="women" data-price="350">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Summer Floral Dress">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Women</span>
+                                <h5 class="card-title fw-bold my-1">Summer Floral Dress</h5>
+                                <p class="product-price fw-bold mb-3">BWP 350.00</p>
+                                <button onclick="addToCart('Summer Floral Dress')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="men" data-price="420">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Urban Comfort Hoodie">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Men</span>
+                                <h5 class="card-title fw-bold my-1">Urban Comfort Hoodie</h5>
+                                <p class="product-price fw-bold mb-3">BWP 420.00</p>
+                                <button onclick="addToCart('Urban Comfort Hoodie')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="accessories" data-price="680">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Classic Leather Handbag">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Accessories</span>
+                                <h5 class="card-title fw-bold my-1">Classic Leather Handbag</h5>
+                                <p class="product-price fw-bold mb-3">BWP 680.00</p>
+                                <button onclick="addToCart('Classic Leather Handbag')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="men" data-price="550">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Athletic Sports Shoes">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Men</span>
+                                <h5 class="card-title fw-bold my-1">Athletic Sports Shoes</h5>
+                                <p class="product-price fw-bold mb-3">BWP 550.00</p>
+                                <button onclick="addToCart('Athletic Sports Shoes')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="women" data-price="290">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="High-Waist Denim Jeans">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Women</span>
+                                <h5 class="card-title fw-bold my-1">High-Waist Denim Jeans</h5>
+                                <p class="product-price fw-bold mb-3">BWP 290.00</p>
+                                <button onclick="addToCart('High-Waist Denim Jeans')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="accessories" data-price="180">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Minimalist Silver Watch">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Accessories</span>
+                                <h5 class="card-title fw-bold my-1">Minimalist Silver Watch</h5>
+                                <p class="product-price fw-bold mb-3">BWP 180.00</p>
+                                <button onclick="addToCart('Minimalist Silver Watch')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="men" data-price="320">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Slim Fit Chino Pants">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Men</span>
+                                <h5 class="card-title fw-bold my-1">Slim Fit Chino Pants</h5>
+                                <p class="product-price fw-bold mb-3">BWP 320.00</p>
+                                <button onclick="addToCart('Slim Fit Chino Pants')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="women" data-price="150">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Ribbed Knit Crop Top">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Women</span>
+                                <h5 class="card-title fw-bold my-1">Ribbed Knit Crop Top</h5>
+                                <p class="product-price fw-bold mb-3">BWP 150.00</p>
+                                <button onclick="addToCart('Ribbed Knit Crop Top')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="accessories" data-price="95">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Elegant Gold Hoop Earrings">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Accessories</span>
+                                <h5 class="card-title fw-bold my-1">Gold Hoop Earrings</h5>
+                                <p class="product-price fw-bold mb-3">BWP 95.00</p>
+                                <button onclick="addToCart('Gold Hoop Earrings')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 product-item-card" data-category="accessories" data-price="120">
+                        <div class="card h-100 shadow-sm border-0">
+                            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&auto=format&fit=crop&q=60" class="card-img-top" alt="Minimalist Stacking Rings">
+                            <div class="card-body d-flex flex-column">
+                                <span class="text-uppercase text-muted small fw-bold">Accessories</span>
+                                <h5 class="card-title fw-bold my-1">Minimalist Stacking Rings</h5>
+                                <p class="product-price fw-bold mb-3">BWP 120.00</p>
+                                <button onclick="addToCart('Minimalist Stacking Rings')" class="btn btn-dark btn-sm mt-auto">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shop.html">Shop Collections</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="shop.html?category=men">Men's Apparel</a></li>
+                        <li><a href="shop.html?category=women">Women's Apparel</a></li>
+                        <li><a href="shop.html?category=accessories">Accessories</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Connect</h5>
+                    <p class="small text-muted">Facebook | TikTok | Instagram</p>
+                    <p class="small mt-2 text-white-50">&copy; 2026 Malela Styles. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let count = 0;
+
+        function addToCart(itemName) {
+            count++;
+            document.getElementById('cart-counter').innerText = count;
+            alert(itemName + " has been added to your cart!");
+        }
+
+        function checkoutAlert() {
+            alert("Proceeding to secure checkout with " + count + " items.");
+        }
+
+        // Sorting script logic
+        function runCatalogFilter() {
+            let chosenCategory = document.getElementById('categoryFilter').value;
+            let chosenPriceRange = document.getElementById('priceFilter').value;
+            let productCards = document.getElementsByClassName('product-item-card');
+
+            for (let i = 0; i < productCards.length; i++) {
+                let card = productCards[i];
+                let cardCategory = card.getAttribute('data-category');
+                let cardPrice = parseFloat(card.getAttribute('data-price'));
+
+                let matchCategory = false;
+                let matchPrice = false;
+
+                // Match category rule
+                if (chosenCategory === 'all' || chosenCategory === cardCategory) {
+                    matchCategory = true;
+                }
+
+                // Match price rule
+                if (chosenPriceRange === 'all') {
+                    matchPrice = true;
+                } else if (chosenPriceRange === 'low' && cardPrice < 300) {
+                    matchPrice = true;
+                } else if (chosenPriceRange === 'mid' && cardPrice >= 300 && cardPrice <= 500) {
+                    matchPrice = true;
+                } else if (chosenPriceRange === 'high' && cardPrice > 500) {
+                    matchPrice = true;
+                }
+
+                // Display parameters
+                if (matchCategory && matchPrice) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+
+        // Listener hook to parse URL parameters (?category=men)
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParameters = new URLSearchParams(window.location.search);
+            const initialCategory = urlParameters.get('category');
+            
+            if (initialCategory) {
+                let dropdownSelect = document.getElementById('categoryFilter');
+                if (dropdownSelect) {
+                    dropdownSelect.value = initialCategory;
+                    runCatalogFilter();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

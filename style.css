@@ -1,0 +1,99 @@
+/* Global Reset & Base Theme Variable Setup */
+:root {
+    --bg-main: #f0f2ee;          /* Soft, eye-pleasing pastel editorial background */
+    --bg-card: #ffffff;          /* Crisp white for content areas and product cards */
+    --text-primary: #212529;     /* Deep charcoal for highly legible typography */
+    --text-muted: #5a6268;       /* Subdued grey for helper labels and micro-copy */
+    --accent-dark: #1a1a1a;      /* Bold black for solid buttons and key actions */
+    --border-color: #dcdfdc;     /* Clean, matching separation lines */
+}
+
+/* Base Body Styles */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+/* Header & Navigation Adjustments */
+header {
+    background-color: var(--bg-card) !important;
+    border-bottom: 2px solid var(--border-color) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.nav-link:hover {
+    color: var(--text-muted) !important;
+}
+
+/* Document-Compliant Wireframe Banner Section */
+.banner-section {
+    background: linear-gradient(135deg, #ffffff 0%, #e5e8e3 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Grid Card Structure Configurations */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Subtle Hover Effect for Human-Coded Interactive Polish */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Enforce uniform catalog image dimensions for grid precision */
+.card-img-top {
+    height: 290px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Sidebar filter box adjustment to pop on the new background */
+aside .border {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+    border-radius: 12px !important;
+}
+
+/* Form inputs styling match */
+.form-select {
+    background-color: #f7f8f6;
+    border-color: var(--border-color);
+}
+.form-select:focus {
+    border-color: var(--accent-dark);
+    box-shadow: none;
+}
+
+/* Footer Styling with subtle contrast */
+footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    margin-top: 5rem;
+    border-top: 4px solid var(--border-color);
+}
+
+footer a {
+    color: #b5b5b5;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+footer h5 {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}

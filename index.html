@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Malela Styles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="bg-white border-bottom sticky-top">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center py-3">
+            <a href="index.html" class="fs-4 fw-bold text-dark text-decoration-none">MALELA STYLES</a>
+            <nav class="d-flex align-items-center">
+                <ul class="nav me-3">
+                    <li class="nav-item"><a href="index.html" class="nav-link text-dark fw-bold">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link text-dark">About us</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" id="shopDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Shop
+                        </a>
+                        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="shopDropdown">
+                            <li><a class="dropdown-item" href="shop.html">All Collections</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="shop.html?category=men">Men's Apparel</a></li>
+                            <li><a class="dropdown-item" href="shop.html?category=women">Women's Apparel</a></li>
+                            <li><a class="dropdown-item" href="shop.html?category=accessories">Accessories</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="nav-item"><a href="gallery.html" class="nav-link text-dark">Gallery</a></li>
+                    <li class="nav-item"><a href="contact.html" class="nav-link text-dark">Contact us</a></li>
+                    <li class="nav-item"><a href="feedback.html" class="nav-link text-dark">Feedback</a></li>
+                </ul>
+                <button class="btn btn-outline-dark position-relative" onclick="checkoutAlert()">
+                    Cart 🛒
+                    <span id="cart-counter" class="badge bg-danger cart-badge">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-showcase-section py-5 my-4">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Discover Your Unique Fashion Statement</h1>
+                    <p class="lead text-muted">Explore the latest high-quality, trendy, and affordable fashion statements explicitly tailored to your lifestyle. Find premium styles curated in local BWP pricing structures.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <a href="shop.html" class="btn btn-dark btn-lg px-4 me-md-2">Shop Now</a>
+                        <a href="about.html" class="btn btn-outline-secondary btn-lg px-4">Our Story</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&auto=format&fit=crop&q=80" class="d-block mx-lg-auto img-fluid rounded shadow-sm" alt="Fashion Hub Header Display" width="700" height="500" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-5 py-4">
+        <h2 class="text-center fw-bold mb-4">Featured Categories</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm text-center p-4">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=80" class="card-img-top rounded mb-3" alt="Women Apparel Preview">
+                    <h4 class="fw-bold">Women</h4>
+                    <p class="text-muted small">Dresses, Tops, Jeans, &amp; Shoes</p>
+                    <a href="shop.html?category=women" class="btn btn-sm btn-dark mt-2">Explore Women's</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm text-center p-4">
+                    <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?w=500&auto=format&fit=crop&q=80" class="card-img-top rounded mb-3" alt="Men Apparel Preview">
+                    <h4 class="fw-bold">Men</h4>
+                    <p class="text-muted small">T-shirts, Hoodies, Pants, &amp; Shoes</p>
+                    <a href="shop.html?category=men" class="btn btn-sm btn-dark mt-2">Explore Men's</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm text-center p-4">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&auto=format&fit=crop&q=80" class="card-img-top rounded mb-3" style="width: 100%; height: 290px; object-fit: cover;" alt="Luxury Gold Diamond Ring">
+                    <h4 class="fw-bold">Accessories</h4>
+                    <p class="text-muted small">Bags, Fine Jewelry, &amp; Luxury Rings</p>
+                    <a href="shop.html?category=accessories" class="btn btn-sm btn-dark mt-2">Explore Accessories</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="shop.html">Shop Collections</a></li>
+                        <li><a href="gallery.html">Gallery Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Categories</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="shop.html?category=men">Men's Apparel</a></li>
+                        <li><a href="shop.html?category=women">Women's Apparel</a></li>
+                        <li><a href="shop.html?category=accessories">Accessories Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Connect</h5>
+                    <p class="small text-muted mb-2">Follow our brand accounts on social media platforms:</p>
+                    <p class="small fw-semibold">Facebook | TikTok | Instagram</p>
+                    <p class="small mt-4 text-white-50">&copy; 2026 Malela Styles. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let count = 0;
+        function checkoutAlert() {
+            alert("Proceeding to secure checkout with " + count + " items.");
+        }
+    </script>
+</body>
+</html>
